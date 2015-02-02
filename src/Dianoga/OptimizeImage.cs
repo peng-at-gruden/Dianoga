@@ -62,6 +62,9 @@ namespace Dianoga
 			else
 			{
 				Log.Error("Dianoga: unable to optimize {0} because {1}".FormatWith(args.OutputStream.MediaItem.Name, result.ErrorMessage), this);
+
+                // Keep processing media item, use orginal data
+                args.OutputStream = new MediaStream(args.MediaData.GetStream().Stream, args.OutputStream.Extension, args.MediaData.MediaItem);
 			}
 		}
 	}
